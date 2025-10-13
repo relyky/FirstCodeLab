@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FirstCodeLab.Entities;
 
+[Keyless]
 public class OrderItem
 {
   [ForeignKey(nameof(Item))]
