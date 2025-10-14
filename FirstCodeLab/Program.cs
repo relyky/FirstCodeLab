@@ -35,8 +35,8 @@ if (app.Environment.IsDevelopment())
   //※ To create DB schema in the development environment.
   using var scope = app.Services.CreateScope();
   using var dbctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-  dbctx.Database.EnsureDeleted();
-  dbctx.Database.EnsureCreated();
+  dbctx.Database.EnsureDeleted(); // 移除
+  dbctx.Database.EnsureCreated(); // 再重建
 }
 
 app.UseHttpsRedirection();

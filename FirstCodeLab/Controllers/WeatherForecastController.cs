@@ -1,3 +1,4 @@
+using FirstCodeLab.DatabaseContext;
 using FirstCodeLab.Models;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
@@ -8,6 +9,7 @@ namespace FirstCodeLab.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController(
   IConfiguration _config,
+  AppDbContext _dbctx,
   ILogger<WeatherForecastController> _logger
   ) : ControllerBase
 {
@@ -30,19 +32,26 @@ public class WeatherForecastController(
     return infoList;
   }
 
+  [HttpGet("[action]")]
+  public MsgObj GetDbProviderName()
+  {
+    return new MsgObj
+    {
+      Success = true,
+      Data = _dbctx.Database.ProviderName,
+    };
+  }
+
   [HttpPost("[action]")]
   public MsgObj TestDBConnection()
   {
     try
     {
-      var connStr = _config.GetConnectionString("MyTestDB");
-      using var conn = new NpgsqlConnection(connStr);
-      conn.Open();
-
+      bool Success = _dbctx.Database.CanConnect();
       return new MsgObj
       {
-        Success = true,
-        Message = "PostgreSQL connection successful.",
+        Success = Success,
+        Message = "Database connection successful.",
         Severity = LogLevel.Information
       };
     }
@@ -52,7 +61,7 @@ public class WeatherForecastController(
       {
         Success = false,
         Data = ex.Message,
-        Message = "PostgreSQL connection failed.",
+        Message = "Database connection failed.",
         Severity = LogLevel.Error
       };
     }

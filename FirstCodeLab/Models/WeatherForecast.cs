@@ -1,4 +1,4 @@
-namespace FirstCodeLab
+namespace FirstCodeLab.Models
 {
     public class WeatherForecast
     {
