@@ -8,7 +8,7 @@ Accept: application/json
 POST {{FirstCodeLab_HostAddress}}/WeatherForecast/TestDBConnection
 Accept: application/json
 
-### 測試資料庫連線
+### 取得資料庫類型
 GET {{FirstCodeLab_HostAddress}}/WeatherForecast/GetDbProviderName
 Accept: application/json
 
@@ -28,7 +28,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-	"name": "John",
+	"name": "約翰",
 	"email": "john@mail.server"
 }
 
