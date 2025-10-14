@@ -1,7 +1,7 @@
-﻿using FirstCodeLab.Entities;
+﻿using FirstCodeLab.DB.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace FirstCodeLab.DatabaseContext;
+namespace FirstCodeLab.DB.DatabaseContext;
 
 public class AppDbContext(DbContextOptions<AppDbContext> _options)
   : DbContext(_options)

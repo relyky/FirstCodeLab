@@ -1,4 +1,4 @@
-using FirstCodeLab.DatabaseContext;
+using FirstCodeLab.DB.DatabaseContext;
 using FirstCodeLab.Models;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
@@ -8,7 +8,6 @@ namespace FirstCodeLab.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController(
-  IConfiguration _config,
   AppDbContext _dbctx,
   ILogger<WeatherForecastController> _logger
   ) : ControllerBase

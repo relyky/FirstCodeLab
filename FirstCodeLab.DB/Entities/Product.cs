@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FirstCodeLab.Entities;
+namespace FirstCodeLab.DB.Entities;
 
 [PrimaryKey(nameof(ProductNo))]
 public class Product

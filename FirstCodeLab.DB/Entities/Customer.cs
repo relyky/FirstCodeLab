@@ -1,4 +1,4 @@
-﻿namespace FirstCodeLab.Entities;
+﻿namespace FirstCodeLab.DB.Entities;
 
 public class Customer
 {

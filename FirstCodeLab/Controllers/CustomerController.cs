@@ -1,5 +1,5 @@
-﻿using FirstCodeLab.DatabaseContext;
-using FirstCodeLab.Entities;
+﻿using FirstCodeLab.DB.DatabaseContext;
+using FirstCodeLab.DB.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

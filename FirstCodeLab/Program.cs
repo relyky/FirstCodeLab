@@ -1,4 +1,4 @@
-using FirstCodeLab.DatabaseContext;
+using FirstCodeLab.DB.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -37,6 +37,8 @@ if (app.Environment.IsDevelopment())
   using var dbctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
   dbctx.Database.EnsureDeleted(); // 移除
   dbctx.Database.EnsureCreated(); // 再重建
+  
+  // TestData.CreateInitialDataForDemo(); // 為資料庫建立展示功能畫面所需資料。
 }
 
 app.UseHttpsRedirection();
