@@ -1,9 +1,14 @@
 @FirstCodeLab_HostAddress = http://localhost:5034
 
-GET {{FirstCodeLab_HostAddress}}/weatherforecast/
+### ぱ箇厨
+GET {{FirstCodeLab_HostAddress}}/weatherforecast/forecast
 Accept: application/json
 
-### 穝糤 Customer
+### 代刚戈畐硈絬
+POST {{FirstCodeLab_HostAddress}}/WeatherForecast/TestDBConnection
+Accept: application/json
+
+### 穝糤 Customer: Alois
 POST {{FirstCodeLab_HostAddress}}/customer/create
 Accept: application/json
 Content-Type: application/json
@@ -13,7 +18,7 @@ Content-Type: application/json
 	"email": "alois@mail.server"
 }
 
-### 穝糤 Customer
+### 穝糤 Customer: John
 POST {{FirstCodeLab_HostAddress}}/customer/create
 Accept: application/json
 Content-Type: application/json
@@ -23,7 +28,7 @@ Content-Type: application/json
 	"email": "john@mail.server"
 }
 
-### 琩高 Customer
+### 穓高场 Customer
 POST {{FirstCodeLab_HostAddress}}/customer/search
 Accept: application/json
 Content-Type: application/json
