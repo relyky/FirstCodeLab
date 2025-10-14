@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter<LogLevel>());
+  options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter<LogLevel>());
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -16,7 +16,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+  var databaseProvider = builder.Configuration.GetValue("DatabaseProvider", "SqlServer");
+  if (databaseProvider == "Npgsql")
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MyTestDB_Npgsql"));
+  else
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyTestDB_SqlServer"));
+});
 
 var app = builder.Build();
 

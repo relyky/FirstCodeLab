@@ -1,11 +1,13 @@
 using FirstCodeLab.Models;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 
 namespace FirstCodeLab.Controllers;
 
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController(
+  IConfiguration _config,
   ILogger<WeatherForecastController> _logger
   ) : ControllerBase
 {
@@ -31,18 +33,28 @@ public class WeatherForecastController(
   [HttpPost("[action]")]
   public MsgObj TestDBConnection()
   {
-    return new MsgObj
+    try
     {
-      Success = true,
-      Message = "測試成功",
-      Severity = LogLevel.Information
-    };
+      var connStr = _config.GetConnectionString("MyTestDB");
+      using var conn = new NpgsqlConnection(connStr);
+      conn.Open();
 
-    return new MsgObj
+      return new MsgObj
+      {
+        Success = true,
+        Message = "PostgreSQL connection successful.",
+        Severity = LogLevel.Information
+      };
+    }
+    catch (Exception ex)
     {
-      Success = false,
-      Message = "測試失敗",
-      Severity = LogLevel.Error
-    };
+      return new MsgObj
+      {
+        Success = false,
+        Data = ex.Message,
+        Message = "PostgreSQL connection failed.",
+        Severity = LogLevel.Error
+      };
+    }
   }
 }

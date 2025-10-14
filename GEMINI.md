@@ -6,7 +6,7 @@ This is a .NET 8 Web API project created using Visual Studio. It appears to be a
 
 *   **.NET 8:** The underlying framework for the application.
 *   **ASP.NET Core:** Used for building the Web API.
-*   **Entity Framework Core:** Used for data access and database management. The connection string in `FirstCodeLab/DatabaseContext/AppDbContext.cs` points to a local SQL Server instance `RELYNB4` and database `MyTestDB`.
+*   **Entity Framework Core:** Used for data access and database management. The project is configured to use SQL Server, but also includes the PostgreSQL provider.
 *   **Swagger/OpenAPI:** Used for API documentation and testing, accessible at `/swagger` in the development environment.
 
 ## Project Structure
@@ -18,9 +18,10 @@ This is a .NET 8 Web API project created using Visual Studio. It appears to be a
     *   `appsettings.json`: Configuration file.
     *   `Controllers/`: Contains API controllers.
         *   `WeatherForecastController.cs`: A sample controller.
+        *   `CustomerController.cs`: A controller for managing customers.
     *   `DatabaseContext/`:
         *   `AppDbContext.cs`: The Entity Framework Core database context, defining the database connection and tables.
-    *   `Entities/`: Contains the database entities (Customer, Item, Order, OrderItem).
+    *   `Entities/`: Contains the database entities (Customer, Product, Order, OrderItem).
     *   `Properties/`:
         *   `launchSettings.json`: IIS and Kestrel launch settings.
 
@@ -55,3 +56,4 @@ There are no tests in this project.
 *   The project follows the standard .NET API project structure.
 *   The connection string is now stored in `appsettings.json` and loaded through configuration.
 *   The database schema is created automatically on startup in the development environment.
+*   Enums are serialized as strings in JSON responses.
