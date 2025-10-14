@@ -3,4 +3,27 @@
 GET {{FirstCodeLab_HostAddress}}/weatherforecast/
 Accept: application/json
 
-###
+### 新增 Customer
+POST {{FirstCodeLab_HostAddress}}/customer/create
+Accept: application/json
+Content-Type: application/json
+
+{
+	"name": "Alois",
+	"email": "alois@mail.server"
+}
+
+### 新增 Customer
+POST {{FirstCodeLab_HostAddress}}/customer/create
+Accept: application/json
+Content-Type: application/json
+
+{
+	"name": "John",
+	"email": "john@mail.server"
+}
+
+### 查詢 Customer
+POST {{FirstCodeLab_HostAddress}}/customer/search
+Accept: application/json
+Content-Type: application/json
