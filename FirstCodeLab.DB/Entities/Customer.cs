@@ -16,5 +16,7 @@ public class Customer
   [MaxLength(50)]
   public required string Email { get; set; }
 
-  public DateTime CreatedAt { get; set; }
+  public DateTimeOffset CreatedAt { get; set; }
+
+  public DateTimeOffset UpdatedAt { get; set; }
 }

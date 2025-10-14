@@ -32,6 +32,17 @@ Content-Type: application/json
 	"email": "john@mail.server"
 }
 
+### 更新 Customer: John.2
+POST {{FirstCodeLab_HostAddress}}/customer/update
+Accept: application/json
+Content-Type: application/json
+
+{
+	"id": 2,
+	"name": "Big John",
+	"email": "bigjohn@mail.server"
+}
+
 ### 搜詢全部 Customer
 POST {{FirstCodeLab_HostAddress}}/customer/search
 Accept: application/json

@@ -27,18 +27,18 @@ public class AppDbContext(DbContextOptions<AppDbContext> _options)
       }
     }
 
-    // 預設值
-    var nowSql = Database.ProviderName switch
-    {
-      "Microsoft.EntityFrameworkCore.SqlServer" => "GETDATE()",
-      "Npgsql.EntityFrameworkCore.PostgreSQL" => "NOW()",
-      _ => throw new NotSupportedException($"Provider {Database.ProviderName} not supported.")
-    };
-
-    modelBuilder.Entity<Customer>()
-        .Property(c => c.CreatedAt)
-        .HasDefaultValueSql(nowSql) 
-        .ValueGeneratedOnAdd();
+    // 預設值 - 用處不大。
+    //var nowSql = Database.ProviderName switch
+    //{
+    //  "Microsoft.EntityFrameworkCore.SqlServer" => "GETDATE()",
+    //  "Npgsql.EntityFrameworkCore.PostgreSQL" => "NOW()",
+    //  _ => throw new NotSupportedException($"Provider {Database.ProviderName} not supported.")
+    //};
+    //
+    //modelBuilder.Entity<Customer>()
+    //  .Property(c => c.CreatedAt)
+    //  .HasDefaultValueSql(nowSql)
+    //  .ValueGeneratedOnAdd();
   }
 
 }
