@@ -38,7 +38,7 @@ if (app.Environment.IsDevelopment())
   dbctx.Database.EnsureDeleted(); // 移除
   dbctx.Database.EnsureCreated(); // 再重建
   
-  // TestData.CreateInitialDataForDemo(); // 為資料庫建立展示功能畫面所需資料。
+  // TestData.CreateInitialDataForDemo(); // 在資料庫加入展示所需資料。
 }
 
 app.UseHttpsRedirection();
